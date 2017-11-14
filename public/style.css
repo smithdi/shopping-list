@@ -1,0 +1,16 @@
+.hdr {
+    text-align: center;
+}
+
+.btnDelete {
+    margin: 0 10px 10px 0;
+}
+
+.table-responsive {
+    max-height:300px;
+}
+
+.empty-list {
+    font-style: italic;
+    text-align: center;
+}
