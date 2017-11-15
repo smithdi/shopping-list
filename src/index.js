@@ -5,7 +5,7 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import App from './components/App';
 import NotFound from './components/NotFound';
 
-// Router component
+// Router component for application. 
 const Root = () => {
     return (
         <BrowserRouter> 

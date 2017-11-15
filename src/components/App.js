@@ -31,6 +31,7 @@ class App extends React.Component{
 
     }
 
+    // Get all Items currently saved to the list
     getShoppingList() {
         getAll()
             .then((response) => {
@@ -47,8 +48,7 @@ class App extends React.Component{
     }
 
     addNewItem(item){
-        const items = {...this.state.list};
-        
+        // call the createItem function, and then get all the items in the list
         createItem(item)
             .then((response) => {
                 this.getShoppingList();
@@ -66,6 +66,7 @@ class App extends React.Component{
 
         deleteRecord(itemId)
             .then((response) => {
+                // find item deleted and remove from the State
                 let arrItems = Object.keys(items).map((k) => items[k])
                 let idx = arrItems.findIndex(x => x.id === itemId);
                 arrItems.splice(idx, 1);
@@ -83,8 +84,7 @@ class App extends React.Component{
     }
 
     deleteAll(){
-        // call deleteItem for each item in State
-        console.log("DELETING");
+        // call deleteItem for each item in State        
         {
             Object
                 .keys(this.state.list)
@@ -108,7 +108,7 @@ class App extends React.Component{
                         addNewItem={this.addNewItem}
                         disableButton={this.state.disableAddItem}/>
                     </div>
-                    
+                    {/* If items in the shopping list, then display items in table, otherwise just display text */}
                     { this.state.display && 
                         <div className="col-md-6">  
                             <div className="col-md-12">

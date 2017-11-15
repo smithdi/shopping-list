@@ -1,8 +1,10 @@
 import React from 'react';
 
+// Component to handle the Add Item Form
 class AddItem extends React.Component{
     constructor(){
         super();
+        // set flags to false initially, will be updated on change to individual inputs
         this.state = {
             validName: false,
             validDesc: false,
@@ -11,7 +13,7 @@ class AddItem extends React.Component{
     }
 
     handleChange(e) {
-        // if value entered then update flag for field
+        // if value entered then update applicable flag for field
         const name = e.target.name;
         const value = e.target.value;
         
@@ -42,12 +44,15 @@ class AddItem extends React.Component{
 
         // reset fields on form
         this.addItemForm.reset();
+        this.state = {
+            validName: false,
+            validDesc: false,
+            validQty: false
+        };
     }
     
     render (){
         
-        const disableBtn = this.props.disableButton;
-
         return (
             <div className="newItem">
                 <h4 className="hdr">New Item</h4>
@@ -73,6 +78,7 @@ class AddItem extends React.Component{
                     </div>
                     <div className="form-group">
                         <div className="col-xs-offset-2 col-xs-10">
+                            {/* Disable the Add button if all the fields have not been filled */}
                             <button type="submit" className="btn btn-primary" disabled={!this.state.validName || !this.state.validDesc || !this.state.validQty}>Add Item</button>
                         </div>
                     </div>

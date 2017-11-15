@@ -1,6 +1,7 @@
 
 import Axios from 'axios';
 
+// Handles the calls to the API
 export function getAll() {
     return Axios.get('http://localhost:4000/list/');    
 }

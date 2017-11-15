@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Component for displaying rows in the table
 class Item extends React.Component{
 
     render() {
